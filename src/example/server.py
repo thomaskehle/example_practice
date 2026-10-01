@@ -3,7 +3,12 @@ from flask import Flask
 app = Flask(__name__)
 
 
+import os
+
+names = [os.environ["FIRST_NAME_IN_LIST"]]
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World! Does this auto-deploy? Test1?</p>"
+    for name in names:
+        thing =  "<p>Hello, World! Does this auto-deploy? Test1? " + name + "</p>\n" 
+    return thing
